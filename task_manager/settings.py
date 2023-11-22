@@ -27,6 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'task-manager-osew.onrender.com',
     'webserver',
     '127.0.0.1',
     '0.0.0.0',

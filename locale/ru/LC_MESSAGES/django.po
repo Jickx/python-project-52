@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Task Manager 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-26 16:28+0300\n"
+"PO-Revision-Date: 2025-12-24 08:00+0000\n"
+"Last-Translator: Developer\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14) ? 2 : 3);\n"
+
+#: .\templates\base.html:8 .\templates\base.html:14 .\templates\base.html:45
+#: .\templates\home.html:4
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: .\templates\base.html:21
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\templates\base.html:26
+msgid "Login"
+msgstr "Вход"
+
+#: .\templates\base.html:29
+msgid "Registration"
+msgstr "Регистрация"
+
+#: .\templates\home.html:4
+msgid "Home"
+msgstr "Главная"
+
+#: .\templates\home.html:10
+msgid "Hello from Hexlet!"
+msgstr "Привет от Хекслета!"
+
+#: .\templates\home.html:11
+msgid "Practical programming courses"
+msgstr "Практические курсы по программированию"
+
+#: .\templates\home.html:13
+msgid "This is a simple Task Manager created as part of learning at Hexlet"
+msgstr "Простой менеджер задач на Django"
+
+#: .\templates\home.html:14
+msgid "Learn more"
+msgstr "Узнать больше"

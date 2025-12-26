@@ -1,4 +1,4 @@
-.PHONY: install dev collectstatic migrate build render-start
+.PHONY: install dev collectstatic migrate build render-start makemessages compilemessages
 
 install:
 	uv sync
@@ -11,6 +11,12 @@ collectstatic:
 
 migrate:
 	uv run python manage.py migrate
+
+makemessages:
+	uv run python manage.py makemessages -l ru
+
+compilemessages:
+	uv run python manage.py compilemessages
 
 build:
 	./build.sh

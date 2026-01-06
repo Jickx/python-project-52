@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block title %}{% trans "Users" %} - {% trans "Task Manager" %}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="mb-0">{% trans "Users" %}</h1>
+  <a href="{% url 'users:create' %}" class="btn btn-success">{% trans "Create user" %}</a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th scope="col">{% trans "ID" %}</th>
+        <th scope="col">{% trans "Username" %}</th>
+        <th scope="col">{% trans "Full name" %}</th>
+        <th scope="col">{% trans "Date joined" %}</th>
+        <th scope="col">{% trans "Actions" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user_item in users %}
+      <tr>
+        <td>{{ user_item.id }}</td>
+        <td>{{ user_item.username }}</td>
+        <td>{{ user_item.get_full_name|default:"—" }}</td>
+        <td>{{ user_item.date_joined|date:"d.m.Y H:i" }}</td>
+        <td class="text-nowrap">
+          <a href="{% url 'users:update' user_item.pk %}" class="btn btn-sm btn-primary">{% trans "Edit" %}</a>
+          <a href="{% url 'users:delete' user_item.pk %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" class="text-center">{% trans "No users found" %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

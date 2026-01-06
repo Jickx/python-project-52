@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Task Manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-26 16:28+0300\n"
+"POT-Creation-Date: 2025-12-26 18:41+0300\n"
 "PO-Revision-Date: 2025-12-24 08:00+0000\n"
 "Last-Translator: Developer\n"
 "Language-Team: Russian\n"
@@ -14,20 +14,37 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14) ? 2 : 3);\n"
 
-#: .\templates\base.html:8 .\templates\base.html:14 .\templates\base.html:45
-#: .\templates\home.html:4
-msgid "Task Manager"
-msgstr "Менеджер задач"
-
-#: .\templates\base.html:21
-msgid "Users"
-msgstr "Пользователи"
-
-#: .\templates\base.html:26
+#: .\templates\auth\login.html:5 .\templates\auth\login.html:12
+#: .\templates\auth\login.html:19 .\templates\base.html:42
 msgid "Login"
 msgstr "Вход"
 
-#: .\templates\base.html:29
+#: .\templates\auth\login.html:5 .\templates\base.html:8
+#: .\templates\base.html:14 .\templates\base.html:71 .\templates\home.html:4
+#: .\templates\users\list.html:5 .\templates\users\create.html:5
+#: .\templates\users\update.html:5 .\templates\users\delete.html:5
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: .\templates\base.html:21 .\templates\users\list.html:5
+#: .\templates\users\list.html:8
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\templates\base.html:25
+msgid "Admin"
+msgstr "Админка"
+
+#: .\templates\base.html:32
+msgid "Hello"
+msgstr "Привет"
+
+#: .\templates\base.html:37
+msgid "Logout"
+msgstr "Выход"
+
+#: .\templates\base.html:45 .\templates\users\create.html:5
+#: .\templates\users\create.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -50,3 +67,103 @@ msgstr "Простой менеджер задач на Django"
 #: .\templates\home.html:14
 msgid "Learn more"
 msgstr "Узнать больше"
+
+#: .\templates\users\list.html:14
+msgid "ID"
+msgstr "ID"
+
+#: .\templates\users\list.html:15 .\users\forms.py:25 .\users\forms.py:37
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\templates\users\list.html:16
+msgid "Full name"
+msgstr "Полное имя"
+
+#: .\templates\users\list.html:17
+msgid "Date joined"
+msgstr "Дата создания"
+
+#: .\templates\users\list.html:18
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\users\list.html:29
+msgid "Edit"
+msgstr "Изменить"
+
+#: .\templates\users\list.html:30
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\users\list.html:35
+msgid "No users found"
+msgstr "Пользователи не найдены"
+
+#: .\templates\users\list.html:9
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: .\templates\users\create.html:16
+msgid "Register"
+msgstr "Зарегистрировать"
+
+#: .\templates\users\update.html:5 .\templates\users\update.html:9
+msgid "Update user"
+msgstr "Изменение пользователя"
+
+#: .\templates\users\update.html:16
+msgid "Update"
+msgstr "Изменить"
+
+#: .\templates\users\update.html:17 .\templates\users\delete.html:16
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\users\delete.html:5 .\templates\users\delete.html:9
+msgid "Delete user"
+msgstr "Удаление пользователя"
+
+#: .\templates\users\delete.html:12
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: .\templates\users\delete.html:15
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: .\users\forms.py:11 .\users\forms.py:35
+msgid "First name"
+msgstr "Имя"
+
+#: .\users\forms.py:16 .\users\forms.py:36
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\users\forms.py:26
+msgid "Password"
+msgstr "Пароль"
+
+#: .\users\forms.py:27
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+#: .\users\views.py:24
+msgid "User successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: .\users\views.py:32
+msgid "User successfully updated"
+msgstr "Пользователь успешно изменён"
+
+#: .\users\views.py:36
+msgid "You can only edit your own profile"
+msgstr "Вы можете редактировать только свой профиль"
+
+#: .\users\views.py:45
+msgid "User successfully deleted"
+msgstr "Пользователь успешно удалён"
+
+#: .\users\views.py:49
+msgid "You can only delete your own profile"
+msgstr "Вы можете удалять только свой профиль"

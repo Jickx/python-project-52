@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Task Manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-26 18:41+0300\n"
+"POT-Creation-Date: 2026-01-06 16:37+0300\n"
 "PO-Revision-Date: 2025-12-24 08:00+0000\n"
 "Last-Translator: Developer\n"
 "Language-Team: Russian\n"
@@ -14,6 +14,34 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14) ? 2 : 3);\n"
 
+#: .\statuses\forms.py:9 .\statuses\models.py:5
+msgid "Name"
+msgstr "Название"
+
+#: .\statuses\models.py:8
+msgid "Status"
+msgstr "Статус"
+
+#: .\statuses\models.py:9
+msgid "Statuses"
+msgstr "Статусы"
+
+#: .\statuses\tests.py:39 .\statuses\views.py:23
+msgid "Status created successfully"
+msgstr "Статус успешно создан"
+
+#: .\statuses\tests.py:52 .\statuses\views.py:33
+msgid "Status updated successfully"
+msgstr "Статус успешно изменён"
+
+#: .\statuses\tests.py:64 .\statuses\views.py:45
+msgid "Status deleted successfully"
+msgstr "Статус успешно удалён"
+
+#: .\statuses\tests.py:74 .\statuses\views.py:47
+msgid "Status cannot be deleted because it is in use"
+msgstr "Статус нельзя удалить, так как он используется"
+
 #: .\templates\auth\login.html:5 .\templates\auth\login.html:12
 #: .\templates\auth\login.html:19 .\templates\base.html:42
 msgid "Login"
@@ -21,13 +49,13 @@ msgstr "Вход"
 
 #: .\templates\auth\login.html:5 .\templates\base.html:8
 #: .\templates\base.html:14 .\templates\base.html:71 .\templates\home.html:4
-#: .\templates\users\list.html:5 .\templates\users\create.html:5
-#: .\templates\users\update.html:5 .\templates\users\delete.html:5
+#: .\templates\users\create.html:5 .\templates\users\delete.html:4
+#: .\templates\users\list.html:5 .\templates\users\update.html:5
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
 #: .\templates\base.html:21 .\templates\users\list.html:5
-#: .\templates\users\list.html:8
+#: .\templates\users\list.html:9
 msgid "Users"
 msgstr "Пользователи"
 
@@ -44,7 +72,7 @@ msgid "Logout"
 msgstr "Выход"
 
 #: .\templates\base.html:45 .\templates\users\create.html:5
-#: .\templates\users\create.html:9
+#: .\templates\users\create.html:12 .\users\tests.py:40
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -68,69 +96,69 @@ msgstr "Простой менеджер задач на Django"
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: .\templates\users\list.html:14
-msgid "ID"
-msgstr "ID"
-
-#: .\templates\users\list.html:15 .\users\forms.py:25 .\users\forms.py:37
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: .\templates\users\list.html:16
-msgid "Full name"
-msgstr "Полное имя"
-
-#: .\templates\users\list.html:17
-msgid "Date joined"
-msgstr "Дата создания"
-
-#: .\templates\users\list.html:18
-msgid "Actions"
-msgstr "Действия"
-
-#: .\templates\users\list.html:29
-msgid "Edit"
-msgstr "Изменить"
-
-#: .\templates\users\list.html:30
-msgid "Delete"
-msgstr "Удалить"
-
-#: .\templates\users\list.html:35
-msgid "No users found"
-msgstr "Пользователи не найдены"
-
-#: .\templates\users\list.html:9
-msgid "Create user"
-msgstr "Создать пользователя"
-
-#: .\templates\users\create.html:16
+#: .\templates\users\create.html:19
 msgid "Register"
 msgstr "Зарегистрировать"
 
-#: .\templates\users\update.html:5 .\templates\users\update.html:9
-msgid "Update user"
-msgstr "Изменение пользователя"
-
-#: .\templates\users\update.html:16
-msgid "Update"
-msgstr "Изменить"
-
-#: .\templates\users\update.html:17 .\templates\users\delete.html:16
-msgid "Cancel"
-msgstr "Отмена"
-
-#: .\templates\users\delete.html:5 .\templates\users\delete.html:9
+#: .\templates\users\delete.html:4 .\templates\users\delete.html:11
 msgid "Delete user"
 msgstr "Удаление пользователя"
 
-#: .\templates\users\delete.html:12
+#: .\templates\users\delete.html:14
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: .\templates\users\delete.html:15
+#: .\templates\users\delete.html:18
 msgid "Yes, delete"
 msgstr "Да, удалить"
+
+#: .\templates\users\delete.html:19 .\templates\users\update.html:20
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\users\list.html:10
+msgid "Create user"
+msgstr "Создать пользователя"
+
+#: .\templates\users\list.html:17
+msgid "ID"
+msgstr "ID"
+
+#: .\templates\users\list.html:18 .\users\forms.py:25 .\users\forms.py:37
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\templates\users\list.html:19
+msgid "Full name"
+msgstr "Полное имя"
+
+#: .\templates\users\list.html:20
+msgid "Date joined"
+msgstr "Дата создания"
+
+#: .\templates\users\list.html:21
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\users\list.html:32
+msgid "Edit"
+msgstr "Изменить"
+
+#: .\templates\users\list.html:33
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\users\list.html:38
+msgid "No users found"
+msgstr "Пользователи не найдены"
+
+#: .\templates\users\update.html:5 .\templates\users\update.html:12
+msgid "Update user"
+msgstr "Изменение пользователя"
+
+#: .\templates\users\update.html:19
+msgid "Update"
+msgstr "Изменить"
 
 #: .\users\forms.py:11 .\users\forms.py:35
 msgid "First name"
@@ -148,22 +176,82 @@ msgstr "Пароль"
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: .\users\views.py:24
+#: .\users\tests.py:61 .\users\views.py:26
 msgid "User successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: .\users\views.py:32
-msgid "User successfully updated"
-msgstr "Пользователь успешно изменён"
-
-#: .\users\views.py:36
+#: .\users\tests.py:95 .\users\views.py:51
 msgid "You can only edit your own profile"
 msgstr "Вы можете редактировать только свой профиль"
 
-#: .\users\views.py:45
+#: .\users\tests.py:113 .\users\views.py:43
+msgid "User successfully updated"
+msgstr "Пользователь успешно изменён"
+
+#: .\users\tests.py:126
+msgid "Are you sure"
+msgstr "Вы уверены"
+
+#: .\users\tests.py:134 .\users\views.py:67
+msgid "You can only delete your own profile"
+msgstr "Вы можете удалять только свой профиль"
+
+#: .\users\tests.py:151 .\users\views.py:75
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удалён"
 
-#: .\users\views.py:49
-msgid "You can only delete your own profile"
-msgstr "Вы можете удалять только свой профиль"
+#: .\users\tests.py:183 .\users\views.py:77
+msgid "User cannot be deleted due to related data"
+msgstr "Пользователя нельзя удалить из‑за связанных данных"
+
+#: .\templates\statuses\list.html:5 .\statuses\models.py:9
+msgid "Statuses"
+msgstr "Статусы"
+
+#: .\templates\statuses\list.html:10
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\statuses\list.html:16 .\templates\users\list.html:21
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\statuses\list.html:23 .\templates\users\list.html:32
+msgid "Edit"
+msgstr "Изменить"
+
+#: .\templates\statuses\list.html:24 .\templates\users\list.html:33
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\statuses\list.html:30
+msgid "No statuses found"
+msgstr "Статусы не найдены"
+
+#: .\templates\statuses\create.html:5 .\templates\statuses\create.html:12
+msgid "Create status"
+msgstr "Создание статуса"
+
+#: .\templates\statuses\create.html:19 .\templates\statuses\update.html:20
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\statuses\update.html:5 .\templates\statuses\update.html:12
+msgid "Update status"
+msgstr "Изменение статуса"
+
+#: .\templates\statuses\update.html:19
+msgid "Update"
+msgstr "Изменить"
+
+#: .\templates\statuses\delete.html:5 .\templates\statuses\delete.html:11
+msgid "Delete status"
+msgstr "Удаление статуса"
+
+#: .\templates\statuses\delete.html:14
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: .\templates\statuses\delete.html:18
+msgid "Yes, delete"
+msgstr "Да, удалить"

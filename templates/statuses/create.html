@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block title %}{% trans "Create status" %} - {% trans "Task Manager" %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-header">
+        <h4 class="mb-0">{% trans "Create status" %}</h4>
+      </div>
+      <div class="card-body">
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+            <a class="btn btn-outline-secondary" href="{% url 'statuses:list' %}">{% trans "Cancel" %}</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

@@ -1,54 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Task Manager 1.0\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 16:37+0300\n"
-"PO-Revision-Date: 2025-12-24 08:00+0000\n"
-"Last-Translator: Developer\n"
-"Language-Team: Russian\n"
-"Language: ru\n"
+"POT-Creation-Date: 2026-01-13 15:17+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14) ? 2 : 3);\n"
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: .\statuses\forms.py:9 .\statuses\models.py:5
+#: .\templates\statuses\list.html:19 .\templates\tasks\list.html:15
 msgid "Name"
-msgstr "Название"
+msgstr "Имя"
 
-#: .\statuses\models.py:8
+#: .\statuses\models.py:8 .\templates\tasks\detail.html:14
+#: .\templates\tasks\list.html:16
 msgid "Status"
 msgstr "Статус"
 
-#: .\statuses\models.py:9
+#: .\statuses\models.py:9 .\templates\base.html:25
+#: .\templates\statuses\list.html:5 .\templates\statuses\list.html:9
 msgid "Statuses"
 msgstr "Статусы"
 
-#: .\statuses\tests.py:39 .\statuses\views.py:23
+#: .\statuses\views.py:26
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: .\statuses\tests.py:52 .\statuses\views.py:33
+#: .\statuses\views.py:38
 msgid "Status updated successfully"
-msgstr "Статус успешно изменён"
+msgstr "Статус успешно обновлён"
 
-#: .\statuses\tests.py:64 .\statuses\views.py:45
+#: .\statuses\views.py:52
 msgid "Status deleted successfully"
 msgstr "Статус успешно удалён"
 
-#: .\statuses\tests.py:74 .\statuses\views.py:47
+#: .\statuses\views.py:54
 msgid "Status cannot be deleted because it is in use"
-msgstr "Статус нельзя удалить, так как он используется"
+msgstr "Статус не может быть удалён, так как используется"
+
+#: .\tasks\views.py:30
+msgid "Task created successfully"
+msgstr "Задача успешно создана"
+
+#: .\tasks\views.py:42
+msgid "Task updated successfully"
+msgstr "Задача успешно обновлена"
+
+#: .\tasks\views.py:59
+msgid "Only the author can delete this task"
+msgstr "Удалять задачу может только её автор"
+
+#: .\tasks\views.py:69
+msgid "Task deleted successfully"
+msgstr "Задача успешно удалена"
 
 #: .\templates\auth\login.html:5 .\templates\auth\login.html:12
-#: .\templates\auth\login.html:19 .\templates\base.html:42
+#: .\templates\auth\login.html:19 .\templates\base.html:50
 msgid "Login"
 msgstr "Вход"
 
 #: .\templates\auth\login.html:5 .\templates\base.html:8
-#: .\templates\base.html:14 .\templates\base.html:71 .\templates\home.html:4
+#: .\templates\base.html:14 .\templates\base.html:79 .\templates\home.html:5
+#: .\templates\statuses\create.html:5 .\templates\statuses\delete.html:5
+#: .\templates\statuses\list.html:5 .\templates\statuses\update.html:5
 #: .\templates\users\create.html:5 .\templates\users\delete.html:4
 #: .\templates\users\list.html:5 .\templates\users\update.html:5
 msgid "Task Manager"
@@ -59,62 +86,157 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: .\templates\base.html:25
-msgid "Admin"
-msgstr "Админка"
+#: .\templates\base.html:28 .\templates\tasks\list.html:7
+msgid "Tasks"
+msgstr "Задачи"
 
-#: .\templates\base.html:32
+#: .\templates\base.html:33
+msgid "Admin"
+msgstr "Админ"
+
+#: .\templates\base.html:40
 msgid "Hello"
 msgstr "Привет"
 
-#: .\templates\base.html:37
+#: .\templates\base.html:45
 msgid "Logout"
 msgstr "Выход"
 
-#: .\templates\base.html:45 .\templates\users\create.html:5
+#: .\templates\base.html:53 .\templates\users\create.html:5
 #: .\templates\users\create.html:12 .\users\tests.py:40
 msgid "Registration"
 msgstr "Регистрация"
 
-#: .\templates\home.html:4
+#: .\templates\home.html:5
 msgid "Home"
 msgstr "Главная"
 
-#: .\templates\home.html:10
+#: .\templates\home.html:11
 msgid "Hello from Hexlet!"
 msgstr "Привет от Хекслета!"
 
-#: .\templates\home.html:11
+#: .\templates\home.html:12
 msgid "Practical programming courses"
-msgstr "Практические курсы по программированию"
-
-#: .\templates\home.html:13
-msgid "This is a simple Task Manager created as part of learning at Hexlet"
-msgstr "Простой менеджер задач на Django"
+msgstr "Практические курсы программирования"
 
 #: .\templates\home.html:14
+msgid "This is a simple Task Manager created as part of learning at Hexlet"
+msgstr "Это простой менеджер задач, созданный в рамках обучения на Хекслете"
+
+#: .\templates\home.html:15
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: .\templates\users\create.html:19
-msgid "Register"
-msgstr "Зарегистрировать"
+#: .\templates\statuses\create.html:5 .\templates\statuses\create.html:12
+msgid "Create status"
+msgstr "Создать статус"
 
-#: .\templates\users\delete.html:4 .\templates\users\delete.html:11
-msgid "Delete user"
-msgstr "Удаление пользователя"
+#: .\templates\statuses\create.html:19 .\templates\statuses\list.html:10
+#: .\templates\tasks\create.html:6
+msgid "Create"
+msgstr "Создать"
 
-#: .\templates\users\delete.html:14
+#: .\templates\statuses\create.html:20 .\templates\statuses\delete.html:21
+#: .\templates\statuses\update.html:20 .\templates\tasks\_form.html:8
+#: .\templates\tasks\delete.html:13 .\templates\users\delete.html:19
+#: .\templates\users\update.html:20
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\statuses\delete.html:5 .\templates\statuses\delete.html:12
+msgid "Delete status"
+msgstr "Удаление статуса"
+
+#: .\templates\statuses\delete.html:16 .\templates\users\delete.html:14
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
+#: .\templates\statuses\delete.html:20 .\templates\tasks\delete.html:12
 #: .\templates\users\delete.html:18
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: .\templates\users\delete.html:19 .\templates\users\update.html:20
-msgid "Cancel"
-msgstr "Отмена"
+#: .\templates\statuses\list.html:20 .\templates\tasks\list.html:20
+#: .\templates\users\list.html:21
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\statuses\list.html:29 .\templates\tasks\detail.html:8
+#: .\templates\tasks\list.html:32 .\templates\users\list.html:32
+msgid "Edit"
+msgstr "Изменить"
+
+#: .\templates\statuses\list.html:30 .\templates\tasks\detail.html:9
+#: .\templates\tasks\list.html:33 .\templates\users\list.html:33
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\statuses\list.html:35
+msgid "No statuses found"
+msgstr "Статусы не найдены"
+
+#: .\templates\statuses\update.html:5 .\templates\statuses\update.html:12
+msgid "Update status"
+msgstr "Изменение статуса"
+
+#: .\templates\statuses\update.html:19 .\templates\tasks\update.html:6
+#: .\templates\users\update.html:19
+msgid "Update"
+msgstr "Обновить"
+
+#: .\templates\tasks\_form.html:7
+msgid "Save"
+msgstr "Сохранить"
+
+#: .\templates\tasks\create.html:5 .\templates\tasks\list.html:8
+msgid "Create task"
+msgstr "Создать задачу"
+
+#: .\templates\tasks\delete.html:7
+msgid "Delete task"
+msgstr "Удаление задачи"
+
+#: .\templates\tasks\delete.html:8
+msgid "Are you sure you want to delete this task?"
+msgstr "Вы уверены, что хотите удалить эту задачу?"
+
+#: .\templates\tasks\detail.html:15 .\templates\tasks\list.html:17
+msgid "Author"
+msgstr "Автор"
+
+#: .\templates\tasks\detail.html:16 .\templates\tasks\list.html:18
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: .\templates\tasks\detail.html:17 .\templates\tasks\list.html:19
+msgid "Created"
+msgstr "Создано"
+
+#: .\templates\tasks\detail.html:20
+msgid "Description"
+msgstr "Описание"
+
+#: .\templates\tasks\detail.html:23
+msgid "Back to list"
+msgstr "Назад к списку"
+
+#: .\templates\tasks\list.html:40
+msgid "No tasks yet."
+msgstr "Задач пока нет."
+
+#: .\templates\tasks\update.html:5
+#, fuzzy
+#| msgid "Edit"
+msgid "Edit task"
+msgstr "Изменить"
+
+#: .\templates\users\create.html:19
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: .\templates\users\delete.html:4 .\templates\users\delete.html:11
+msgid "Delete user"
+msgstr "Удаление пользователя"
 
 #: .\templates\users\list.html:10
 msgid "Create user"
@@ -134,19 +256,7 @@ msgstr "Полное имя"
 
 #: .\templates\users\list.html:20
 msgid "Date joined"
-msgstr "Дата создания"
-
-#: .\templates\users\list.html:21
-msgid "Actions"
-msgstr "Действия"
-
-#: .\templates\users\list.html:32
-msgid "Edit"
-msgstr "Изменить"
-
-#: .\templates\users\list.html:33
-msgid "Delete"
-msgstr "Удалить"
+msgstr "Дата регистрации"
 
 #: .\templates\users\list.html:38
 msgid "No users found"
@@ -155,10 +265,6 @@ msgstr "Пользователи не найдены"
 #: .\templates\users\update.html:5 .\templates\users\update.html:12
 msgid "Update user"
 msgstr "Изменение пользователя"
-
-#: .\templates\users\update.html:19
-msgid "Update"
-msgstr "Изменить"
 
 #: .\users\forms.py:11 .\users\forms.py:35
 msgid "First name"
@@ -186,7 +292,7 @@ msgstr "Вы можете редактировать только свой пр�
 
 #: .\users\tests.py:113 .\users\views.py:43
 msgid "User successfully updated"
-msgstr "Пользователь успешно изменён"
+msgstr "Пользователь успешно обновлён"
 
 #: .\users\tests.py:126
 msgid "Are you sure"
@@ -202,56 +308,4 @@ msgstr "Пользователь успешно удалён"
 
 #: .\users\tests.py:183 .\users\views.py:77
 msgid "User cannot be deleted due to related data"
-msgstr "Пользователя нельзя удалить из‑за связанных данных"
-
-#: .\templates\statuses\list.html:5 .\statuses\models.py:9
-msgid "Statuses"
-msgstr "Статусы"
-
-#: .\templates\statuses\list.html:10
-msgid "Create"
-msgstr "Создать"
-
-#: .\templates\statuses\list.html:16 .\templates\users\list.html:21
-msgid "Actions"
-msgstr "Действия"
-
-#: .\templates\statuses\list.html:23 .\templates\users\list.html:32
-msgid "Edit"
-msgstr "Изменить"
-
-#: .\templates\statuses\list.html:24 .\templates\users\list.html:33
-msgid "Delete"
-msgstr "Удалить"
-
-#: .\templates\statuses\list.html:30
-msgid "No statuses found"
-msgstr "Статусы не найдены"
-
-#: .\templates\statuses\create.html:5 .\templates\statuses\create.html:12
-msgid "Create status"
-msgstr "Создание статуса"
-
-#: .\templates\statuses\create.html:19 .\templates\statuses\update.html:20
-msgid "Cancel"
-msgstr "Отмена"
-
-#: .\templates\statuses\update.html:5 .\templates\statuses\update.html:12
-msgid "Update status"
-msgstr "Изменение статуса"
-
-#: .\templates\statuses\update.html:19
-msgid "Update"
-msgstr "Изменить"
-
-#: .\templates\statuses\delete.html:5 .\templates\statuses\delete.html:11
-msgid "Delete status"
-msgstr "Удаление статуса"
-
-#: .\templates\statuses\delete.html:14
-msgid "Are you sure you want to delete"
-msgstr "Вы уверены, что хотите удалить"
-
-#: .\templates\statuses\delete.html:18
-msgid "Yes, delete"
-msgstr "Да, удалить"
+msgstr "Пользователь не может быть удалён из-за связанных данных"

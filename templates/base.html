@@ -20,9 +20,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:list' %}">{% trans "Users" %}</a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'statuses:list' %}">{% trans "Statuses" %}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tasks:list' %}">{% trans "Tasks" %}</a>
+                    </li>
+                    {% endif %}
                     {% if user.is_superuser %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'admin:index' %}">{% trans "Admin" %}</a>

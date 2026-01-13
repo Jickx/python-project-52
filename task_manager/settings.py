@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'users',
     'statuses',
+    'tasks',  # добавлено
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = [
     ('en', 'English'),
@@ -143,10 +144,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Auth settings
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+# Auth settings (single source of truth)
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Настройки для админки
 ADMIN_URL = os.getenv('ADMIN_URL', 'admin/')

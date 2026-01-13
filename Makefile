@@ -22,7 +22,7 @@ showmigrations:
 	uv run python manage.py showmigrations
 
 makemessages:
-	uv run python manage.py makemessages -l ru
+	uv run python manage.py makemessages -l ru --no-obsolete
 
 compilemessages:
 	uv run python manage.py compilemessages
@@ -38,6 +38,10 @@ test:
 
 test-statuses:
 	uv run python manage.py test statuses
+
+test-statuses-models:
+	python manage.py test statuses.tests.test_models
+
 
 test-users:
 	uv run python manage.py test users

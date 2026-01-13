@@ -30,6 +30,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),  # use configurable admin URL
     path('login/', auth_views.LoginView.as_view(template_name='auth/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('users/', include('users.urls')),
-    path('statuses/', include('statuses.urls')),
+    path('users/', include(('users.urls', 'users'), namespace='users')),
+    path('statuses/', include(('statuses.urls', 'statuses'), namespace='statuses')),
+    path('tasks/', include(('tasks.urls', 'tasks'), namespace='tasks')),
 ]

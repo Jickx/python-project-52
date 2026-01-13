@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block content %}
+<div class="container py-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>{% trans "Tasks" %}</h1>
+    <a href="{% url 'tasks:create' %}" class="btn btn-primary">{% trans "Create task" %}</a>
+  </div>
+
+  {% if tasks %}
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th>{% trans "Name" %}</th>
+          <th>{% trans "Status" %}</th>
+          <th>{% trans "Author" %}</th>
+          <th>{% trans "Executor" %}</th>
+          <th>{% trans "Created" %}</th>
+          <th class="text-end">{% trans "Actions" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+          <tr>
+            <td><a href="{% url 'tasks:detail' task.id %}">{{ task.name }}</a></td>
+            <td>{{ task.status }}</td>
+            <td>{{ task.author }}</td>
+            <td>{{ task.executor|default:"-" }}</td>
+            <td>{{ task.created_at|date:"Y-m-d H:i" }}</td>
+            <td class="text-end">
+              <a href="{% url 'tasks:update' task.id %}" class="btn btn-sm btn-outline-secondary">{% trans "Edit" %}</a>
+              <a href="{% url 'tasks:delete' task.id %}" class="btn btn-sm btn-outline-danger">{% trans "Delete" %}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-muted">{% trans "No tasks yet." %}</p>
+  {% endif %}
+</div>
+{% endblock %}

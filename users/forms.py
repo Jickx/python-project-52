@@ -37,3 +37,8 @@ class UserUpdateForm(forms.ModelForm):
             'username': _('Username'),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Ensure these are required (Django's User has blank=True by default)
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True

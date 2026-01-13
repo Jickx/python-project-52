@@ -19,6 +19,8 @@ class StatusCreateView(LoginRequiredMixin, CreateView):
     form_class = StatusForm
     template_name = 'statuses/create.html'
     success_url = reverse_lazy('statuses:list')
+    # Disallow unsupported methods (PUT/DELETE)
+    http_method_names = ['get', 'post', 'head', 'options']
 
     def form_valid(self, form):
         messages.success(self.request, _('Status created successfully'))
@@ -29,6 +31,8 @@ class StatusUpdateView(LoginRequiredMixin, UpdateView):
     form_class = StatusForm
     template_name = 'statuses/update.html'
     success_url = reverse_lazy('statuses:list')
+    # Disallow unsupported methods (PUT/DELETE)
+    http_method_names = ['get', 'post', 'head', 'options']
 
     def form_valid(self, form):
         messages.success(self.request, _('Status updated successfully'))
@@ -38,6 +42,8 @@ class StatusDeleteView(LoginRequiredMixin, DeleteView):
     model = Status
     template_name = 'statuses/delete.html'
     success_url = reverse_lazy('statuses:list')
+    # Disallow HTTP DELETE so client.delete(...) returns 405; keep POST for controlled deletion
+    http_method_names = ['get', 'post', 'head', 'options']
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from statuses.models import Status
 
+
 class StatusCRUDTestCase(TestCase):
     def setUp(self):
         self.client = Client()
@@ -74,15 +75,14 @@ class StatusCRUDTestCase(TestCase):
         self.assertTrue(any(m.level == ERROR for m in msgs))
 
     def test_create_get_form(self):
-        """Test that create view displays the form"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.get(reverse('statuses:create'))
         self.assertEqual(resp.status_code, 200)
-        self.assertContains(resp, 'name')
+        self.assertIn('form', resp.context)
+        self.assertIn('name', resp.context['form'].fields)
         self.assertTemplateUsed(resp, 'statuses/create.html')
 
     def test_update_get_form(self):
-        """Test that update view displays the form with existing data"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.get(reverse('statuses:update', args=[self.status1.id]))
         self.assertEqual(resp.status_code, 200)
@@ -90,44 +90,37 @@ class StatusCRUDTestCase(TestCase):
         self.assertTemplateUsed(resp, 'statuses/update.html')
 
     def test_delete_get_confirmation(self):
-        """Test that delete view displays confirmation page"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.get(reverse('statuses:delete', args=[self.status1.id]))
         self.assertEqual(resp.status_code, 200)
         self.assertTemplateUsed(resp, 'statuses/delete.html')
 
     def test_create_post_requires_login(self):
-        """Test that creating status without login redirects"""
         resp = self.client.post(reverse('statuses:create'), {'name': 'Test'})
         self.assertRedirects(resp, f"{reverse('login')}?next={reverse('statuses:create')}")
         self.assertFalse(Status.objects.filter(name='Test').exists())
 
     def test_update_post_requires_login(self):
-        """Test that updating status without login redirects"""
         resp = self.client.post(reverse('statuses:update', args=[self.status1.id]), {'name': 'Test'})
         self.assertRedirects(resp, f"{reverse('login')}?next={reverse('statuses:update', args=[self.status1.id])}")
 
     def test_delete_post_requires_login(self):
-        """Test that deleting status without login redirects"""
         resp = self.client.post(reverse('statuses:delete', args=[self.status1.id]))
         self.assertRedirects(resp, f"{reverse('login')}?next={reverse('statuses:delete', args=[self.status1.id])}")
 
     def test_create_empty_name(self):
-        """Test that creating status with empty name shows validation error"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.post(reverse('statuses:create'), {'name': ''})
         self.assertEqual(resp.status_code, 200)
         self.assertTrue(resp.context['form'].errors.get('name'))
 
     def test_create_duplicate_name(self):
-        """Test that creating status with duplicate name shows validation error"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.post(reverse('statuses:create'), {'name': 'New'})
         self.assertEqual(resp.status_code, 200)
         self.assertTrue(resp.context['form'].errors.get('name'))
 
     def test_create_long_name(self):
-        """Test that creating status with name exceeding max_length shows error"""
         self.client.login(username='user', password='pass12345')
         long_name = 'a' * 256
         resp = self.client.post(reverse('statuses:create'), {'name': long_name})
@@ -135,33 +128,28 @@ class StatusCRUDTestCase(TestCase):
         self.assertTrue(resp.context['form'].errors.get('name'))
 
     def test_update_empty_name(self):
-        """Test that updating status with empty name shows validation error"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.post(reverse('statuses:update', args=[self.status1.id]), {'name': ''})
         self.assertEqual(resp.status_code, 200)
         self.assertTrue(resp.context['form'].errors.get('name'))
 
     def test_update_duplicate_name(self):
-        """Test that updating status with another status name shows validation error"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.post(reverse('statuses:update', args=[self.status1.id]), {'name': 'In progress'})
         self.assertEqual(resp.status_code, 200)
         self.assertTrue(resp.context['form'].errors.get('name'))
 
     def test_update_nonexistent_status(self):
-        """Test that updating non-existent status returns 404"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.get(reverse('statuses:update', args=[99999]))
         self.assertEqual(resp.status_code, 404)
 
     def test_delete_nonexistent_status(self):
-        """Test that deleting non-existent status returns 404"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.get(reverse('statuses:delete', args=[99999]))
         self.assertEqual(resp.status_code, 404)
 
     def test_list_ordering(self):
-        """Test that statuses are ordered by name"""
         self.client.login(username='user', password='pass12345')
         Status.objects.create(name='Zebra')
         Status.objects.create(name='Alpha')
@@ -171,9 +159,25 @@ class StatusCRUDTestCase(TestCase):
         self.assertEqual(names, sorted(names))
 
     def test_list_context_and_template(self):
-        """Test that list view uses correct context and template"""
         self.client.login(username='user', password='pass12345')
         resp = self.client.get(reverse('statuses:list'))
         self.assertIn('statuses', resp.context)
         self.assertTemplateUsed(resp, 'statuses/list.html')
         self.assertEqual(len(resp.context['statuses']), 2)
+
+    def test_list_post_not_allowed(self):
+        self.client.login(username='user', password='pass12345')
+        resp = self.client.post(reverse('statuses:list'), data={})
+        self.assertEqual(resp.status_code, 405)
+
+    def test_put_is_not_allowed_on_create_and_update(self):
+        self.client.login(username='user', password='pass12345')
+        resp_create = self.client.put(reverse('statuses:create'))
+        resp_update = self.client.put(reverse('statuses:update', args=[self.status1.id]))
+        self.assertEqual(resp_create.status_code, 405)
+        self.assertEqual(resp_update.status_code, 405)
+
+    def test_delete_http_method_is_not_allowed_on_deleteview(self):
+        self.client.login(username='user', password='pass12345')
+        resp = self.client.delete(reverse('statuses:delete', args=[self.status1.id]))
+        self.assertEqual(resp.status_code, 405)

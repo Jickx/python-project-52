@@ -1,0 +1,11 @@
+{% load django_bootstrap5 %}
+
+<form method="post" novalidate>
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <div class="d-flex gap-2">
+    <button type="submit" class="btn btn-primary">{{ submit_label|default:"Save" }}</button>
+    <a href="{% url 'tasks:list' %}" class="btn btn-secondary">Cancel</a>
+  </div>
+</form>
+
